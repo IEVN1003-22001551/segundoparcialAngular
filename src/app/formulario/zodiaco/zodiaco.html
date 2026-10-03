@@ -1,0 +1,51 @@
+<div>
+  <h2>Datos Personales</h2>
+
+  <label>Nombre:</label>
+  <input type="text" [(ngModel)]="nombre">
+  <br><br>
+
+  <label>Apaterno:</label>
+  <input type="text" [(ngModel)]="apaterno">
+  <br><br>
+
+  <label>Amaterno:</label>
+  <input type="text" [(ngModel)]="amaterno">
+  <br><br>
+
+  <h3>Fecha de nacimiento</h3>
+  
+  <label>Día:</label>
+  <input type="number" [(ngModel)]="dia">
+  
+  <label>Mes:</label>
+  <input type="number" [(ngModel)]="mes">
+  
+  <label>Año:</label>
+  <input type="number" [(ngModel)]="anio">
+  <br><br>
+
+  <h3>Sexo</h3>
+  <input type="radio" value="Masculino" [(ngModel)]="sexo" name="sexo"> Masculino
+  <input type="radio" value="Femenino" [(ngModel)]="sexo" name="sexo"> Femenino
+  <br><br>
+
+  <button (click)="imprimirDatos()">imprimir</button>
+</div>
+
+<hr> 
+
+@if (mostrarResultado) {
+  <div>
+    <h2>Hola <i>{{ nombreCompleto }}</i></h2>
+    
+    <p>Tienes <b>{{ edad }}</b> años</p>
+    
+    <p>tu signo zodiacal</p>
+    
+    <!-- El emoji del signo -->
+    <h1>{{ emojiSigno }}</h1>
+    
+    <p>Es {{ signoZodiacal }}</p>
+  </div>
+}
