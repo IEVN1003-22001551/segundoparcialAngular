@@ -1,0 +1,68 @@
+<br>
+<br>
+
+<div class="min-h-screen flex items-center justify-center p-4 bg-[#0b2343]">
+  <form class="max-w-sm mx-auto bg-white p-8 rounded-lg shadow-xl w-full">
+    
+    <div class="text-center mb-6">
+      <h2 class="text-2xl font-extrabold text-heading">Cinépolis</h2>
+    </div>
+    <div class="mb-5">
+      <label for="nombre" class="block mb-2.5 text-sm font-medium text-heading">Nombre</label>
+      <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" 
+             class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" 
+             placeholder="Tu nombre" required />
+    </div>
+    <div class="mb-5">
+      <label for="compradores" class="block mb-2.5 text-sm font-medium text-heading">Cantidad Compradores</label>
+      <input type="number" id="compradores" name="compradores" [(ngModel)]="cantidadCompradores" 
+             class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" 
+             required />
+    </div>
+    <div class="mb-5">
+      <label class="block mb-2.5 text-sm font-medium text-heading">Tarjeta Cineco</label>
+      <div class="flex gap-6 mt-2">
+        <label for="tarjeta_si" class="flex items-center cursor-pointer">
+          <input id="tarjeta_si" type="radio" name="tarjetaCineco" [value]="true" [(ngModel)]="tarjetaCineco" 
+                 class="w-4 h-4 border border-default-medium rounded-full bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft" required />
+          <p class="ms-2 text-sm font-medium text-heading select-none">Sí</p>
+        </label>
+        <label for="tarjeta_no" class="flex items-center cursor-pointer">
+          <input id="tarjeta_no" type="radio" name="tarjetaCineco" [value]="false" [(ngModel)]="tarjetaCineco" 
+                 class="w-4 h-4 border border-default-medium rounded-full bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft" required />
+          <p class="ms-2 text-sm font-medium text-heading select-none">No</p>
+        </label>
+      </div>
+    </div>
+    <div class="mb-5">
+      <label for="boletas" class="block mb-2.5 text-sm font-medium text-heading">Cantidad De Boletos</label>
+      <input type="number" id="boletas" name="boletas" [(ngModel)]="cantidadBoletas" 
+             class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" 
+             required />
+    </div>
+    <div class="mb-6 pt-5 border-t border-gray-200">
+      <label for="valor_pagar" class="block mb-2.5 text-sm font-medium text-heading">Valor a Pagar</label>
+      <input type="text" id="valor_pagar" name="valor_pagar" [value]="valorPagar" readonly 
+             class="bg-gray-100 border border-default-medium text-heading text-base font-bold rounded-base focus:outline-none block w-full px-3 py-2.5 shadow-xs cursor-not-allowed text-center" 
+             placeholder="$ 0" />
+    </div>
+    <div class="flex gap-4">
+      <button type="button" (click)="procesar()" 
+              class="w-full text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none transition-colors">
+        Procesar
+      </button>
+      
+      <button type="button" (click)="salir()" 
+              class="w-full text-white bg-red-600 box-border border border-transparent hover:bg-red-700 focus:ring-4 focus:ring-red-300 shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none transition-colors">
+        Salir
+      </button>
+
+      <button type="button" routerLink="/escuela/venta"
+              class="w-full text-white bg-green-600 box-border border border-transparent hover:bg-red-700 focus:ring-4 focus:ring-red-300 shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none transition-colors">
+        Ventas
+      </button>
+
+    </div>
+
+  </form>
+</div>

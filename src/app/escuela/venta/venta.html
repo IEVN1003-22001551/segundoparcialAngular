@@ -1,0 +1,61 @@
+<div class="min-h-screen p-4 bg-[#0b2343] pt-10">
+  
+  <div class="max-w-6xl mx-auto bg-white p-6 rounded-2xl shadow-2xl">
+    
+    <!-- Encabezado de la página -->
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-3xl font-extrabold text-gray-900">
+        Registro de Ventas
+      </h2>
+      
+      <!-- Botón de Regresar -->
+      <button type="button" routerLink="/escuela/cinepolis" 
+              class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-all inline-flex items-center">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Regresar
+      </button>
+    </div>
+
+    <!-- Tabla -->
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-xs text-white uppercase bg-blue-600">
+          <tr>
+            <th scope="col" class="px-6 py-3">Nombre</th>
+            <th scope="col" class="px-6 py-3">Compradores</th>
+            <th scope="col" class="px-6 py-3 text-center">Boletos</th>
+            <th scope="col" class="px-6 py-3">Total Cobrado</th>
+            <th scope="col" class="px-6 py-3 text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Recorremos el arreglo de ventas con ngFor -->
+          <tr *ngFor="let venta of ventas; let i = index" class="bg-white border-b border-gray-200 hover:bg-gray-50">
+            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+              {{ venta.nombre }}
+            </td>
+            <td class="px-6 py-4">{{ venta.compradores }}</td>
+            <td class="px-6 py-4 text-center">{{ venta.boletas }}</td>
+            <td class="px-6 py-4 font-bold text-green-600">{{ venta.total }}</td>
+            <td class="px-6 py-4">
+              <div class="flex justify-center gap-2">
+                <button type="button" (click)="eliminarVenta(i)"
+                  class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 shadow transition-colors">
+                  Eliminar
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mensaje cuando no existen ventas -->
+    <div *ngIf="ventas.length === 0" class="p-4 mt-6 text-sm text-blue-800 rounded-lg bg-blue-50 border border-blue-200" role="alert">
+      <span class="font-medium">Sin registros:</span> Aún no has procesado ninguna venta en la calculadora.
+    </div>
+    
+  </div>
+</div>
